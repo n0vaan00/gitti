@@ -3,11 +3,11 @@ import './App.css';
 import {useState} from 'react';
 
 function App() {
-  const [weight,setWeight] = useState(0);
-  const [bottles,setBottles] = useState(0);
-  const [time,setTime] = useState(0);
-  const [alco,setAlco] = useState(0);
-  const [gender,setGender] = useState(0);
+  const [weight,setWeight] = useState();
+  const [bottles,setBottles] = useState();
+  const [time,setTime] = useState();
+  const [alco,setAlco] = useState();
+  const [gender,setGender] = useState();
 
     let litres = bottles * 0.33;
     let grams = litres * 8 * 4.5;

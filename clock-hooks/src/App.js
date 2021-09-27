@@ -1,37 +1,24 @@
-import React,{useState, useEffect,useRef} from 'react'
-import Toggle from './stopstart';
+import React from 'react';
+import { Route, Switch } from 'react-router';
 
-export default function Clock() {
-  const timerRef = useRef();
-  const [time, setTime] = useState(new Date())
-
-  useEffect(() => {
-    console.log('componentdidmount');
-    start();
-
-    return () => {
-      console.log('componentwillunmount');
-      stop();
-    };
-  },[])
-
-  function start() {
-    const id = setInterval(() => {
-      setTime(new Date());
-    },1000);
-    timerRef.current = id;
-    console.log(timerRef.current);
-  }
-
-  function stop() {
-    clearInterval(timerRef.current);
-  }
-
+function App() {
   return (
-    <div style={{margin: '30px'}}>
-      {time.toLocaleTimeString()}
-      <Toggle start={start} stop={stop} />
+    <>
+    <NavBar />
+    <Header />
+    <div className="container">
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/about" component={About} />
+        <Route path="/contactus" component={ContactUs} />
+        <Route component={NotFound} />
+      </Switch>
     </div>
-  )
+    <Footer />
+    </>
+  );
 }
+
+export default App;
+
 
